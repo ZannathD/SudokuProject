@@ -7,6 +7,7 @@ int main()
 // Test comment
     while (window.isOpen())
     {
+        //New test comment
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
