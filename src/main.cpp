@@ -1,13 +1,15 @@
 //Developers:         Dustin Lockhart, Simon Mekhail
 //Class:              COP 2006 - CRN 14488
 //Date:               March 25, 2025
-//Description:        A program in C++ that
+//Description:        A program in C++ that allows a user to play a simple game of Sudoku
 //Log:
 
 
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 
 
 
@@ -31,12 +33,6 @@ void sudokuBoard(sf::RenderWindow &window)
     }
 }
 */
-
-
-
-
-
-
 
 int main()
 {
@@ -71,8 +67,27 @@ int main()
 
     auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
     window.setFramerateLimit(144);
+
+    // Load Rabbids Picture
+    /*sf::Texture texture;
+    if (!texture.loadFromFile("IMG_2635.jpeg")
+    {
+        return 0;
+    }*/
+
+
+    //Load music to play
+    sf::Music music;
+    if (!music.openFromFile("chill_Lofi.wav"))
+    {
+        return -1; //error
+    }
+    music.play();
+
+
     while (window.isOpen())
     {
+
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
@@ -102,3 +117,4 @@ int main()
         window.display();
     }
 }
+
